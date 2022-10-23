@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-  --primary-color: var(--primary-color);
+  --primary-color: #563d7c;
+  --opaque-background: #563d7c30;
+  --grey: #e0e0e0;
 }
 /******** hearsid *********************************************/
 body {
@@ -11,8 +13,8 @@ body {
 }
 
 .contacts-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .contact-image {
@@ -21,56 +23,27 @@ body {
   padding: 2px;
 }
 .contact-image:hover {
-  animation-name: scale-image;
-  animation-duration: 0.5s;
-  -webkit-animation: scale-image 0.5s;
-}
-
-@-webkit-keyframes scale-image {
-  0% {
-    transform: scale(1.5, 1.5);
-    -webkit-transform: scale(1.5, 1.5);
-  }
-  30% {
-    transform: rotate(30deg);
-    -webkit-transform: rotate(30deg);
-  }
-  60% {
-    transform: rotate(-30deg);
-    -webkit-transform: rotate(-30deg);
-  }
-  80% {
-    border: 5px solid mediumpurple;
-    border-radius: 4px;
-  }
+  // animation-name: scale-image;
+  // animation-duration: 0.5s;
 }
 
 @keyframes scale-image {
   0% {
     transform: scale(1.5, 1.5);
-    -webkit-transform: scale(1.5, 1.5);
   }
   30% {
-    transform: rotate(30deg);
-    -webkit-transform: rotate(30deg);
+    transform: rotate(10deg);
   }
   60% {
-    transform: rotate(-30deg);
-    -webkit-transform: rotate(-30deg);
+    transform: rotate(-10deg);
   }
   80% {
     border: 5px solid mediumpurple;
     border-radius: 4px;
+    display: inherit;
   }
 }
 
-.media-heading {
-  width: 100%;
-}
-
-.media-body {
-  width: 100%;
-}
 /* Add animation */
 .my-repeat-animation.ng-enter.ng-enter-active,
 .my-repeat-animation.ng-leave {
@@ -89,26 +62,67 @@ body {
   transition: opacity 300ms linear;
 }
 
-.contact div {
-  display: inline-block;
-}
-
-.thumbnail {
-  float: none !important;
-  width: 100%;
-  border: 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .contact {
   text-align: center;
-  display: flex;
+  display: inline-flex;
   border: 1px solid gray;
   border-radius: 5px;
   margin: 4px;
   padding: 4px;
+  width: 400px;
+
+  &:hover {
+    background: var(--opaque-background);
+  }
+
+  .thumbnail {
+    float: none !important;
+    width: 100%;
+    border: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: content;
+
+  }
+
+  
+  .media-body {
+    width: 100%;
+    text-align: left;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+
+    .info-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      line-height: 20px;
+      margin-top: auto;
+      margin-bottom: auto;
+      font-weight: 400;
+      
+      .label {
+        margin-right: auto;
+        
+        color: rgba(58, 57, 57, 0.837);
+      }
+
+      .value {
+        margin-left: auto;
+      }
+    }
+
+    .media-heading {
+      width: 100%;
+
+      a {
+        display: inline-block;
+        float: right;
+        margin-right: 10px;
+      }
+    }
+  }
 }
 /**************************************************************/
 .bs-header {
@@ -152,17 +166,6 @@ body {
 
 .media-list {
   text-align: center;
-}
-
-@media (min-width: 450px) {
-  .media-list {
-    text-align: left;
-  }
-
-  .media .thumbnail {
-    float: left;
-    margin-right: 25px;
-  }
 }
 
 .btn-outline {
@@ -232,62 +235,63 @@ a.thumbnail.active {
 }
 
 .glyphicon {
-    position: relative;
-    top: 1px;
-    display: inline-block;
-    font-family: 'Glyphicons Halflings';
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: "Glyphicons Halflings";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .glyphicon-pencil:before {
-    content: "\270f";
+  content: "\270f";
 }
 
 .gg-trash {
-    box-sizing: border-box;
-    position: relative;
-    display: block;
-    transform: scale(var(--ggs,1));
-    width: 10px;
-    height: 12px;
-    border: 2px solid transparent;
-    box-shadow:
-    0 0 0 2px,
-    inset -2px 0 0,
-    inset 2px 0 0;
-    border-bottom-left-radius: 1px;
-    border-bottom-right-radius: 1px;
-    margin-top: 4px
-   }
-   
-   .gg-trash::after,
-   .gg-trash::before {
-    content: "";
-    display: block;
-    box-sizing: border-box;
-    position: absolute
-   }
-   
-   .gg-trash::after {
-    background: currentColor;
-    border-radius: 3px;
-    width: 16px;
-    height: 2px;
-    top: -4px;
-    left: -5px
-   }
-   
-   .gg-trash::before {
-    width: 10px;
-    height: 4px;
-    border: 2px solid;
-    border-bottom: transparent;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    top: -7px;
-    left: -2px
-   } 
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs, 1));
+  width: 10px;
+  height: 12px;
+  border: 2px solid transparent;
+  box-shadow: 0 0 0 2px, inset -2px 0 0, inset 2px 0 0;
+  border-bottom-left-radius: 1px;
+  border-bottom-right-radius: 1px;
+  margin-top: 4px;
+}
+
+.gg-trash::after,
+.gg-trash::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+}
+
+.gg-trash::after {
+  background: currentColor;
+  border-radius: 3px;
+  width: 16px;
+  height: 2px;
+  top: -4px;
+  left: -5px;
+}
+
+.gg-trash::before {
+  width: 10px;
+  height: 4px;
+  border: 2px solid;
+  border-bottom: transparent;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  top: -7px;
+  left: -2px;
+}
+
+.gg-trash:hover {
+  cursor: pointer;
+}

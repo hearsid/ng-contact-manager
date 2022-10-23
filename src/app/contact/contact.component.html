@@ -5,23 +5,26 @@
 <div class="media-body">
     <div class="media-heading">
         <h3>
-            {{index + 1}}.)
+            {{index + 1}})
             {{contact.name}}
-            <small>
+            <!-- <small>
                 <a (click)="edit()">
                     <i class="glyphicon glyphicon-pencil"></i>
                 </a>
                 <a (click)="removeContact(index)">
                     <i class="gg-trash"></i>
                 </a>
-            </small>
+            </small> -->
+            <a (click)="removeContact(index)">
+                <i class="gg-trash"></i>
+            </a>
         </h3>
     </div>
 
-    <dl>
-        <dt>[Phone Number]</dt>
-        <dd >{{contact.tel}}</dd>
-        <dt>[Email]</dt>
-        <dd >{{contact.email}}</dd>
-    </dl>
+    <div class="info-container">
+        <div class="label">Phone Number:</div>
+        <div class="value">{{contact.tel}}</div>
+        <div class="label">Email:</div>
+        <div class="value">{{contact.email}}</div>
+    </div>
 </div>
