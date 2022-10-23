@@ -29,8 +29,6 @@ export class ContactsComponent implements OnInit, OnDestroy {
         this.total_contacts = Number(total_contacts);
         this.contacts = this.contactService.generateContacts(this.total_contacts);
         this.getContacts(this.total_contacts);
-        console.log(this.total_contacts);
-        console.log(this.contacts);
       });
   }
 
