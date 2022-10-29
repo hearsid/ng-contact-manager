@@ -69,7 +69,7 @@ body {
   border-radius: 5px;
   margin: 4px;
   padding: 4px;
-  width: 400px;
+  min-width: 400px;
 
   &:hover {
     background: var(--opaque-background);
@@ -83,10 +83,8 @@ body {
     justify-content: center;
     align-items: center;
     flex-basis: content;
-
   }
 
-  
   .media-body {
     width: 100%;
     text-align: left;
@@ -95,22 +93,27 @@ body {
     flex-direction: column;
 
     .info-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      // display: grid;
+      // grid-template-columns: 1fr 1fr;
+      display: flex;
+      flex-direction: column;
       line-height: 20px;
       margin-top: auto;
       margin-bottom: auto;
       font-weight: 400;
       font-size: 12px;
-      
-      .label {
-        margin-right: auto;
-        
-        color: rgba(58, 57, 57, 0.837);
-      }
 
-      .value {
-        margin-left: auto;
+      .row {
+        display: flex;
+
+        .label {
+          margin-right: auto;
+          color: rgba(58, 57, 57, 0.837);
+        }
+
+        .value {
+          margin-left: auto;
+        }
       }
     }
 
@@ -128,7 +131,8 @@ body {
 /**************************************************************/
 .bs-header {
   position: relative;
-  padding: 30px 15px;
+  width: 100%;
+  padding: 30px 0px;
   font-size: 20px;
   color: #cdbfe3;
   text-align: center;
@@ -230,8 +234,8 @@ a.thumbnail.active {
 .container {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  // padding-left: 15px;
+  // padding-right: 15px;
   width: 80%;
 }
 

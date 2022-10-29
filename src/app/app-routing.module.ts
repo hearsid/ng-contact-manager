@@ -6,7 +6,8 @@ const routes: Routes = [];
 @NgModule({
   imports: [
     RouterModule.forRoot([
-      { path: '', redirectTo: '/contacts', pathMatch: 'full' }
+      { path: '', redirectTo: '/contacts', pathMatch: 'full' },
+      { path: '**', redirectTo: '/contacts' }
     ])
   ],
   exports: [
