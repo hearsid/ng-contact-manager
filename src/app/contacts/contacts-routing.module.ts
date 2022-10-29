@@ -6,7 +6,8 @@ import { ContactsComponent } from './contacts.component';
 @NgModule({
     imports: [
         RouterModule.forChild([
-            { path: 'contacts', component: ContactsComponent }
+            { path: 'contacts', component: ContactsComponent },
+            { path: '**', redirectTo: '/' }
         ])
     ],
     exports: [

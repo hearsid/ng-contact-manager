@@ -7,7 +7,6 @@ const routes: Routes = [];
   imports: [
     RouterModule.forRoot([
       { path: '', redirectTo: '/contacts', pathMatch: 'full' },
-      { path: '**', redirectTo: '/contacts' }
     ])
   ],
   exports: [
